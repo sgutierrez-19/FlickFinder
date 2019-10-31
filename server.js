@@ -1,27 +1,41 @@
+// Requiring necessary npm packages
+var path = require("path");
 var express = require("express");
+var session = require("express-session");
+var exphbs = require("express-handlebars");
+// Requiring passport as we've configured it
+var passport = require("./server/config/passport");
 
-var PORT = process.env.PORT || 3000;
+// Setting up port and requiring models for syncing
+var PORT = process.env.PORT || 8080;
+var db = require("./server/models");
 
+// Creating express app and configuring middleware needed for authentication
 var app = express();
-
-// Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
-
-// Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("client/public"));
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
-// Set Handlebars.
-var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({
+  defaultLayout: "main",
+}));
 app.set("view engine", "handlebars");
+app.set("views", path.join(__dirname, "client/views"))
 
-// Import routes and give the server access to them.
-var routes = require("./controllers/burgers_controller.js");
+// Requiring our routes
+const apiRoutes = require("./server/routes/api-routes.js");
+app.use(apiRoutes);
 
-app.use(routes);
+const htmlRoutes = require("./server/routes/html-routes.js");
+app.use(htmlRoutes);
 
-app.listen(PORT, function() {
-  console.log("App now listening at localhost:" + PORT);
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+  });
 });
