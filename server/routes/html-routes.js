@@ -7,7 +7,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 router.get("/signup", function (req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
-    return res.redirect("/");
+    return res.redirect("/home");
   }
   res.render("signup", { isLoggedOut: true });
 });
@@ -15,7 +15,7 @@ router.get("/signup", function (req, res) {
 router.get("/login", function (req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
-    return res.redirect("/");
+    return res.redirect("/home");
   }
   res.render("login", { isLoggedOut: true });
 });
@@ -26,24 +26,30 @@ router.get("/", isAuthenticated, function (req, res) {
   res.render("index", { email: req.user.email });
 });
 
-// Here we've add our isAuthenticated middleware to this route.
-// If a user who is not logged in tries to access this route they will be redirected to the signup page
-router.get("/candle", isAuthenticated, function (req, res) {
-  db.Candle.findAll({
-    where: {
-      UserId: req.user.id
-    }
-  }).then(function (candles) {
-    res.render("candle/list", { candles });
-  }).catch(function (err) {
-    res.status(500).json(err);
-  });
+router.get("/home", isAuthenticated, function (req, res) {
+  res.render("home", { email: req.user.email });
 });
 
 // Here we've add our isAuthenticated middleware to this route.
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
-router.get("/candle/create", isAuthenticated, function (req, res) {
-  res.render("candle/create");
+router.get("/movie", isAuthenticated, function (req, res) {
+  res.render("movie");
+});
+
+// Here we've add our isAuthenticated middleware to this route.
+// If a user who is not logged in tries to access this route they will be redirected to the signup page
+router.get("/ratings", isAuthenticated, function (req, res) {
+
+  db.Movie.findAll({
+    where: {
+      user_id: req.user.id
+    }
+  })
+  .then(function (movies) {
+    res.render("ratings", { movies });
+  }).catch(function (err) {
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;

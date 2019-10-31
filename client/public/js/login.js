@@ -29,7 +29,7 @@ $(document).ready(function() {
         password: password
       })
         .then(function() {
-          location.replace("/");
+          location.replace("/home");
           // If there's an error, log the error
         })
         .catch(function(err) {
