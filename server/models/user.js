@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   User.associate = function (models) {
-    User.hasMany(models.Candle);
+    User.hasMany(models.Movie);
   }
 
   return User;
