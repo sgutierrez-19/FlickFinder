@@ -53,32 +53,44 @@ router.get("/api/user_data", function (req, res) {
   }
 });
 
-router.get("/api/candles", isAuthenticated, function (req, res) {
-  db.Candle.findAll({
+// router.get("/api/candles", isAuthenticated, function (req, res) {
+//   db.Candle.findAll({
+//     where: {
+//       UserId: req.user.id
+//     }
+//   })
+//     .then(function (dbCandles) {
+//       res.json(dbCandles);
+//     })
+//     .catch(function (err) {
+//       res.status(500).json(err);
+//     });
+// });
+router.post("/api/movies", isAuthenticated, function (req, res) {
+  db.Movie.create({
+    movie_title: req.body.movie_title,
+    movie_year: req.body.movie_year,
+    overview: req.body.overview,
+    poster_path: req.body.poster_path,
+    user_id: req.user.id,
+  })
+    .then(function (newMovie) {
+      res.json(newMovie);
+    })
+    .catch(function (err) {
+      res.status(500).json(err);
+    });
+});
+
+router.delete("/api/movies/:id", isAuthenticated, function (req, res) {
+  db.Movie.destroy({
     where: {
-      UserId: req.user.id
+      id : req.params.id
     }
   })
-    .then(function (dbCandles) {
-      res.json(dbCandles);
-    })
-    .catch(function (err) {
-      res.status(500).json(err);
-    });
-});
-router.post("/api/candles", isAuthenticated, function (req, res) {
-  db.Candle.create({
-    name: req.body.name,
-    scent: req.body.scent,
-    height: req.body.height,
-    UserId: req.user.id
+  .then(function(result) {
+    res.json(result);
   })
-    .then(function (dbCandle) {
-      res.json(dbCandle);
-    })
-    .catch(function (err) {
-      res.status(500).json(err);
-    });
-});
+})
 
 module.exports = router;
