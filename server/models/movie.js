@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     poster_path: {
-      type: type: DataTypes.STRING,
+      type:DataTypes.STRING,
       allowNull: false
     },
     user_id: {
