@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+  $("").on("click", function (event) {
+
+  });
+
   $("#favorite").on("click", function (event) {
     event.preventDefault();
     var newMovie = {
@@ -16,11 +20,14 @@ $(document).ready(function () {
       });
   });
 
-  $("#remove").on("click", function (event) {
+  $(".remove").on("click", function (event) {
     event.preventDefault();
     var id = $(this).data("id");
+    console.log("hi");
 
-    $.delete("/api/movies/" + id)
+    $.ajax("/api/movies/" + id, {
+      method: "DELETE"
+    })
       .then(function (result) {
         location.reload();
       });
