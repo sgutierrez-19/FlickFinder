@@ -10,10 +10,10 @@ $(document).ready(function(){
     var searchMovies = $(".movies-search");
     var nowPlaying = $(".now-playing");
     // the value of the search movies text box called movie-input
-    var movieInput = $(".movie-input").val();
+    var movieInput = $("#movie-input").val();
 
     // ajax for searching a specific movie that the user can then vote on
-    searchMovies.on("click", function(event){
+    searchMovies.on("submit", function(event){
         event.preventDefault();
         var queryURL = "https://api.themoviedb.org/3/search/movie?api_key=" + apikey + "&language=en-US&query=" + movieInput + "&page=1";
         $.ajax({
