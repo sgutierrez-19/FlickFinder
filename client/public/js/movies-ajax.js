@@ -60,6 +60,7 @@ $(document).ready(function(){
                 var txtDiv = $("<div>");
                 var h1Title = $("<h1>");
                 
+                
                 console.log(movieTitle);
             }
        
