@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const db = require("../models");
+const axios = require("axios");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -32,8 +33,24 @@ router.get("/home", isAuthenticated, function (req, res) {
 
 // Here we've add our isAuthenticated middleware to this route.
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
-router.get("/movie", isAuthenticated, function (req, res) {
+router.get("/movie/:movieid", isAuthenticated, function (req, res) {
+  var apikey = "539ccda6c942a1dfd00efc7df43be0d1"
+  var queryURL = "https://api.themoviedb.org/3/movie/" + "475557" + "?api_key=" + apikey+ "&language=en-US"
+
+  axios.get(queryURL)
+  .then(function (response) {
+    console.log(response.data);
+    res.render("movie", response.data)
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
   res.render("movie");
+
 });
 
 // Here we've add our isAuthenticated middleware to this route.
@@ -42,7 +59,7 @@ router.get("/ratings", isAuthenticated, function (req, res) {
 
   db.Movie.findAll({
     where: {
-      user_id: req.user.id
+      UserId: req.user.id
     }
   })
   .then(function (movies) {
