@@ -7,15 +7,18 @@ $(document).ready(function(){
     
     // these will be buttons most likely
     var getRecommended = $(".rec-movies");
-    var searchMovies = $(".movies-search");
+    var searchMovies = $("#movie-search");
     var nowPlaying = $(".now-playing");
-    // the value of the search movies text box called movie-input
-    var movieInput = $("#movie-input").val();
+    // search box for movies
+    var movieInput = $("#movie-search-title");
+    
 
     // ajax for searching a specific movie that the user can then vote on
     searchMovies.on("submit", function(event){
+        
+        var movieInputVal = movieInput.val();
         event.preventDefault();
-        var queryURL = "https://api.themoviedb.org/3/search/movie?api_key=" + apikey + "&language=en-US&query=" + movieInput + "&page=1";
+        var queryURL = "https://api.themoviedb.org/3/search/movie?api_key=" + apikey + "&language=en-US&query=" + movieInputVal + "&page=1";
         $.ajax({
             url: queryURL,
             method: "GET"
