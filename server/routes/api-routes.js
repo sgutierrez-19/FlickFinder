@@ -72,7 +72,7 @@ router.post("/api/movies", isAuthenticated, function (req, res) {
     movie_year: req.body.movie_year,
     overview: req.body.overview,
     poster_path: req.body.poster_path,
-    user_id: req.user.id,
+    UserId: req.user.id,
   })
     .then(function (newMovie) {
       res.json(newMovie);
@@ -85,7 +85,8 @@ router.post("/api/movies", isAuthenticated, function (req, res) {
 router.delete("/api/movies/:id", isAuthenticated, function (req, res) {
   db.Movie.destroy({
     where: {
-      id : req.params.id
+      id : req.params.id,
+      UserId: req.user.id
     }
   })
   .then(function(result) {
