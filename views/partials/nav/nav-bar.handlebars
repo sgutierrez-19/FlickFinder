@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Inventory Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      {{#if isLoggedOut}}
+      <li class="nav-item{{#if isLoginPage}} active{{/if}}">
+        <a class="nav-link" href="/login">Login {{#if isLoginPage}}<span class="sr-only">(current)</span>{{/if}}</a>
+      </li>
+      <li class="nav-item{{#if isSignUpPage}} active{{/if}}">
+        <a class="nav-link" href="/signup">Sign Up {{#if isSignUpPage}}<span class="sr-only">(current)</span>{{/if}}</a>
+      </li>
+      {{else}}
+      <li class="nav-item{{#if isHomePage}} active{{/if}}">
+        <a class="nav-link" href="/">Home {{#if isHomePage}}<span class="sr-only">(current)</span>{{/if}}</a>
+      </li>
+      <li class="nav-item{{#if isStoresPage}} active{{/if}}">
+        <a class="nav-link" href="/stores">Stores  {{#if isStoresPage}}<span class="sr-only">(current)</span>{{/if}}</a>
+      </li>
+      <li class="nav-item{{#if isProductsPage}} active{{/if}}">
+        <a class="nav-link" href="/products">Products {{#if isProductsPage}}<span class="sr-only">(current)</span>{{/if}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>
