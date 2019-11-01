@@ -2,3 +2,10 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+.card-deck {
+  float: left;
+}
+.card-footer {
+  background-color: bisque;
+}

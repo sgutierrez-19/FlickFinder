@@ -7,15 +7,18 @@ $(document).ready(function(){
     
     // these will be buttons most likely
     var getRecommended = $(".rec-movies");
-    var searchMovies = $(".movies-search");
+    var searchMovies = $("#movie-search");
     var nowPlaying = $(".now-playing");
-    // the value of the search movies text box called movie-input
-    var movieInput = $(".movie-input").val();
+    // search box for movies
+    var movieInput = $("#movie-search-title");
+    
 
     // ajax for searching a specific movie that the user can then vote on
-    searchMovies.on("click", function(event){
+    searchMovies.on("submit", function(event){
+        
+        var movieInputVal = movieInput.val();
         event.preventDefault();
-        var queryURL = "https://api.themoviedb.org/3/search/movie?api_key=" + apikey + "&language=en-US&query=" + movieInput + "&page=1";
+        var queryURL = "https://api.themoviedb.org/3/search/movie?api_key=" + apikey + "&language=en-US&query=" + movieInputVal + "&page=1";
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -54,14 +57,32 @@ $(document).ready(function(){
                 var npDiv = $("<div>");
                 npDiv.attr("data-title", movieTitle);
                 npDiv.attr("data-id", movieId);
-                npDiv.attr("data-plot", moviePlot);
                 npDiv.attr("data-poster", moviePoster);
-
+                
+            
                 var txtDiv = $("<div>");
                 var h1Title = $("<h1>");
+                var pPlot = $("<p>");
+
+                h1Title.text("Title: " + movieTitle);
+                pPlot.text("Plot: " + moviePlot);
+                
+                var npImg = $("<img>");
+
+                npImg.attr("src", "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + moviePoster);
                 
                 
-                console.log(movieTitle);
+                txtDiv.append(h1Title);
+                txtDiv.append(pPlot);
+                txtDiv.append(npImg);
+                
+                
+                npDiv.append(txtDiv);
+                
+
+                $(".npContainer").append(npDiv);
+                
+                
             }
        
        
