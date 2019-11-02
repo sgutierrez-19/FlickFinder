@@ -53,34 +53,53 @@ $(document).ready(function(){
                 var movieId = result.results[i].id;
                 var moviePlot = result.results[i].overview;
                 var moviePoster = result.results[i].poster_path;
-
+                
+                
+                
+                
+               
+                
                 var npDiv = $("<div>");
-                npDiv.attr("data-title", movieTitle);
-                npDiv.attr("data-id", movieId);
-                npDiv.attr("data-poster", moviePoster);
+                npDiv.attr("class", "card");
+                // img div
+                var npImg = $("<img>");
+                npImg.attr("src", "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + moviePoster);
+                npImg.attr("class", "card-img-top img-fluid");
+                npDiv.append(npImg);
+
+                // footer text of each card
+                var npFooter = $("<div>");
+                npFooter.attr("class", "card-footer");
+                var npFooterTxt = $("<small>");
+                npFooterTxt.attr("class", "text-muted");
+                npFooterTxt.text(movieTitle);
+                npFooter.append(npFooterTxt);
+                npDiv.append(npFooter);
+               
+                // npDiv.attr("data-title", movieTitle);
+                // npDiv.attr("data-id", movieId);
+                // npDiv.attr("data-poster", moviePoster);
                 
             
-                var txtDiv = $("<div>");
-                var h1Title = $("<h1>");
-                var pPlot = $("<p>");
+                // var txtDiv = $("<div>");
+                // var h1Title = $("<h1>");
+                // var pPlot = $("<p>");
 
-                h1Title.text("Title: " + movieTitle);
-                pPlot.text("Plot: " + moviePlot);
+                // h1Title.text("Title: " + movieTitle);
+                // pPlot.text("Plot: " + moviePlot);
                 
-                var npImg = $("<img>");
-
-                npImg.attr("src", "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + moviePoster);
+               
                 
                 
-                txtDiv.append(h1Title);
-                txtDiv.append(pPlot);
-                txtDiv.append(npImg);
+                // txtDiv.append(h1Title);
+                // txtDiv.append(pPlot);
+                // txtDiv.append(npImg);
                 
                 
-                npDiv.append(txtDiv);
+                // npDiv.append(txtDiv);
                 
 
-                $(".npContainer").append(npDiv);
+                $("#npContainer").append(npDiv);
                 
                 
             }
