@@ -1,6 +1,30 @@
-<h2>
-    movie
-    {{!-- <span class="member-name">
-        {{email}}
-    </span> --}}
-</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{this.singleMovie.poster_path}}"
+                alt="Movie Poster" class="img-thumbnail"> </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>{{this.singleMovie.title}}</h1>
+                    <h2>Released: {{this.singleMovie.release_date}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>{{this.singleMovie.overview}}</p>
+                    <button type="button" class="btn btn-success"
+                        data-movieid="{{this.singleMovie.id}}">Favorite</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="npRow">
+    <div class="col-md-8 offset-md-2">
+        <div class="card-deck" id="npContainer"></div>
+    </div>
+</div>
+
+<script src="/js/movies/create.js"></script>
