@@ -22,9 +22,35 @@ $(document).ready(function(){
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function(results){
-            console.log(results);
+        }).then(function(result){
+            console.log(result);
+            
+            for(var i = 0; i<5;i++){
+            var moviePoster = result.results[i].poster_path;
+            var movieTitle = result.results[i].title;
+            var movieId = result.results[i].id;
+
             // do stuff with the results here (fill divs add info elsewhere etc)
+            var mediaDiv = $("<div>");
+            mediaDiv.attr("class", "media");
+            var imgDiv = $("<img>");
+            var imgLink = $("<a>");
+            imgLink.attr("href", "/movie/" + movieId);
+            imgDiv.attr("src", "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + moviePoster);
+            imgLink.append(imgDiv);
+           
+            mediaDiv.append(imgLink);
+
+            var mediaBody = $("<div>");
+            mediaBody.attr("class", "media-body");
+            var titleHeader = $("<h5>");
+            titleHeader.text(movieTitle);
+            mediaBody.append(titleHeader);
+            mediaDiv.append(mediaBody);
+
+            $("#searchResults").append(mediaDiv);
+
+            }
         }).catch(function(err){
             if (err) throw err;
             console.log(err);
