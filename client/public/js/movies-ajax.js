@@ -22,12 +22,6 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             method: "GET"
-<<<<<<< HEAD
-        }).then(function (results) {
-            console.log(results);
-            // do stuff with the results here (fill divs add info elsewhere etc)
-        }).catch(function (err) {
-=======
         }).then(function(result){
             console.log(result);
             
@@ -58,7 +52,6 @@ $(document).ready(function () {
 
             }
         }).catch(function(err){
->>>>>>> origin/master
             if (err) throw err;
             console.log(err);
         })
@@ -69,6 +62,7 @@ $(document).ready(function () {
     // if it just shows now playing when we load the page, we'll get rid of the on click method
     nowPlaying.on("click", function (event) {
         event.preventDefault();
+
         // building the url for the ajax
         var queryURL = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + apikey + "&language=en-US&page=1";
 
