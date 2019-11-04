@@ -35,7 +35,7 @@ router.get("/home", isAuthenticated, function (req, res) {
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
 router.get("/movie/:movieid", isAuthenticated, function (req, res) {
   var apikey = "539ccda6c942a1dfd00efc7df43be0d1"
-  var queryURL = "https://api.themoviedb.org/3/movie/" + "475557" + "?api_key=" + apikey+ "&language=en-US"
+  var queryURL = "https://api.themoviedb.org/3/movie/" + req.params.movieid + "?api_key=" + apikey+ "&language=en-US"
 
   axios.get(queryURL)
   .then(function (response) {

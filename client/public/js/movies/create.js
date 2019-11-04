@@ -10,13 +10,16 @@ $(document).ready(function () {
       movie_title: $("#movie-title").text(),
       movie_year: $("#movie-year").text(),
       overview: $("#overview").text(),
-      poster_path: $(this).data("link"),
+      poster_path: $("#poster").attr("src"),
       favorited: true
     }
 
     $.post("/api/movies", newMovie)
       .then(function (result) {
 
+      })
+      .catch(function(err) {
+        alert("error")
       });
   });
 

@@ -1,20 +1,20 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{this.singleMovie.poster_path}}"
+            <img id="poster" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{this.singleMovie.poster_path}}"
                 alt="Movie Poster" class="img-thumbnail"> </div>
         <div class="col-md-6">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1>{{this.singleMovie.title}}</h1>
-                    <h2>Released: {{this.singleMovie.release_date}}</h2>
+                    <h1 id="movie-title">{{this.singleMovie.title}}</h1>
+                    <h2>Released: <span id="movie-year">{{this.singleMovie.release_date}}</span></h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <p>{{this.singleMovie.overview}}</p>
+                    <p id="overview">{{this.singleMovie.overview}}</p>
                     <button type="button" class="btn btn-success"
-                        data-movieid="{{this.singleMovie.id}}">Favorite</button>
+                        data-movieid="{{this.singleMovie.id}}" id="favorite">Favorite</button>
                 </div>
             </div>
         </div>
@@ -28,3 +28,46 @@
 </div>
 
 <script src="/js/movies/create.js"></script>
+<script>
+    var apikey = "539ccda6c942a1dfd00efc7df43be0d1"
+var queryURL = "https://api.themoviedb.org/3/movie/" + $(".btn-success").data("movieid") + "/recommendations?api_key=" + apikey+ "&language=en-US&page=1"
+
+// ajax for now playing movies
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (result) {
+    console.log(result);
+    // do shit with the data we get back
+    // prob store data in our database here using associations?
+
+    for (var i = 0; i < 5; i++) {
+        var movieTitle = result.results[i].title;
+        var movieId = result.results[i].id;
+        var moviePlot = result.results[i].overview;
+        var moviePoster = result.results[i].poster_path;
+
+        var npDiv = $("<div>");
+        npDiv.attr("class", "card");
+        // img div
+        var npImg = $("<img>");
+        npImg.attr("src", "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + moviePoster);
+        npImg.attr("class", "card-img-top img-fluid");
+        npDiv.append(npImg);
+
+        // footer text of each card
+        var npFooter = $("<div>");
+        npFooter.attr("class", "card-footer");
+        var npFooterTxt = $("<small>");
+        npFooterTxt.attr("class", "text-muted");
+        npFooterTxt.text(movieTitle);
+        npFooter.append(npFooterTxt);
+        npDiv.append(npFooter);
+
+        $("#npContainer").append(npDiv);
+    }
+}).catch(function (err) {
+    if (err) throw err;
+    console.log(err);
+});
+</script>
