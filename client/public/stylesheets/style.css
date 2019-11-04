@@ -8,6 +8,14 @@ form.login {
   font-family: 'Gothic A1', sans-serif !important;
 }
 
+h2 {
+  font-weight: bold;
+  margin: -10px 0px;
+  float: left;
+  padding:25px;
+  color: gold;
+}
+
 button.btn btn-default {
   height: auto;
   clear: left;
@@ -30,11 +38,12 @@ button.btn btn-default {
   background-color: gold;
 }
 
+.navbar {
+  background: gold;
+}
 
-* { box-sizing: border-box; }
 body {
-  padding: 1px;
-  background: rgb(41, 41, 41);
+  background-color: rgb(41, 41, 41);
 }
 
 #movie-search {
