@@ -127,3 +127,17 @@ p {
   z-index: 2;
 }
 
+.movie-title {
+  font-weight: bold;
+  font-size: 26px
+}
+
+.movie-date {
+  font-weight: bold;
+  font-size: 20px
+}
+
+.movie-overview {
+  font-size: 16px;
+  color: gold;
+}
