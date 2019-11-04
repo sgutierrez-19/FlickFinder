@@ -11,6 +11,7 @@ $(document).ready(function () {
       movie_year: $("#movie-year").text(),
       overview: $("#overview").text(),
       poster_path: $("#poster").attr("src"),
+      movie_id: $("#favorite").data("movieid"),
       favorited: true
     }
 
