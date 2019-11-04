@@ -7,12 +7,13 @@
         </div>
         <div class="col-sm-6">
             <div class="row">
-                <h1>{{this.movie_title}}</h1>
-                <br>
-                <h3>Released: {{this.movie_year}}</h3>
+                <h1 class="movie-title">{{this.movie_title}}</h1>
             </div>
             <div class="row">
-                <p>{{this.overview}}</p>
+                <h3 class="movie-date">Released: {{this.movie_year}}</h3>
+            </div>
+            <div class="row">
+                <p class="movie-overview">{{this.overview}}</p>
             </div>
         </div>
         <div class="col-sm-3">
@@ -23,5 +24,6 @@
     
 </div>
 
+<link rel="stylesheet" href="/client/public/assets/css/ratings.css">
 <script src="/js/movies/create.js"></script>
 
