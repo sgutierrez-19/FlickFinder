@@ -59,9 +59,8 @@ router.post("/api/movies", isAuthenticated, function (req, res) {
     movie_year: req.body.movie_year,
     overview: req.body.overview,
     poster_path: req.body.poster_path,
+    movie_id: req.body.movie_id,
     favorited: req.body.favorited,
-    createdAt: "2019.11.02 12:00:00",
-    updatedAt: "2019.11.02 12:00:00",
     UserId: req.user.id
   })
     .then(function (newMovie) {

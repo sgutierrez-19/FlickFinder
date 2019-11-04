@@ -1,6 +1,40 @@
 $(document).ready(function() {
+
+$(".signup-button").on("click", function(event) {
+
+$(".modal-content").html(`
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLongTitle">Sign Up</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form class="signup">
+
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="email-input" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="password-input" placeholder="Password">
+        </div>
+        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-default signup-form">Sign Up</button>
+    </div>
+</form>
+`);
+
+
     // Getting references to our form and input
-    var signUpForm = $("form.signup");
+    var signUpForm = $(".signup");
     var emailInput = $("input#email-input");
     var passwordInput = $("input#password-input");
   
@@ -48,3 +82,4 @@ $(document).ready(function() {
     }
   });
   
+});
