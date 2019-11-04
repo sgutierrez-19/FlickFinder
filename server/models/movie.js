@@ -20,6 +20,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: false
     }, 
+    movie_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     createdAt: {
       allowNull: true,
       type: DataTypes.DATE

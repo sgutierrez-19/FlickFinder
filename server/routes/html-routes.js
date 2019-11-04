@@ -59,18 +59,12 @@ router.get("/movie/:movieid", isAuthenticated, function (req, res) {
 
   axios.get(queryURL)
   .then(function (response) {
-    console.log(response.data.poster_path);
-    console.log(response.data.title);
-    console.log(response.data.release_date);
-    console.log(response.data.overview);
-    console.log(response.data.id);
-
     let singleMovie = {
       poster_path: response.data.poster_path,
       title: response.data.title,
       release_date: response.data.release_date,
       overview: response.data.overview,
-      id: response.data.id,
+      movieid: response.data.id,
     }
 
     res.render("movie", { singleMovie } );
