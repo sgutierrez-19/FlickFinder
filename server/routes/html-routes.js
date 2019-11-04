@@ -23,8 +23,8 @@ router.get("/login", function (req, res) {
 
 // Here we've add our isAuthenticated middleware to this route.
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
-router.get("/", isAuthenticated, function (req, res) {
-  res.render("index", { email: req.user.email });
+router.get("/", function (req, res) {
+  res.render("index", {  });
 });
 
 router.get("/home", isAuthenticated, function (req, res) {
