@@ -28,7 +28,27 @@ router.get("/", isAuthenticated, function (req, res) {
 });
 
 router.get("/home", isAuthenticated, function (req, res) {
-  res.render("home", { email: req.user.email });
+  
+  db.Movie.findAll({
+    where: {
+      UserId: req.user.id
+    }
+  })
+  .then(function (result) {
+    console.log(result.length);
+    if (result.length > 0){
+      console.log("you have a favorited movie");
+      console.log(result);
+    } else{
+      console.log("you have none");
+    }
+    
+    
+    res.render("home", { email: req.user.email });
+  }).catch(function (err) {
+    res.status(500).json(err);
+  });
+
 });
 
 // Here we've add our isAuthenticated middleware to this route.
