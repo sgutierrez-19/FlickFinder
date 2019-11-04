@@ -6,6 +6,7 @@ form.login {
 .card-deck {
   float: left;
 }
-.card-footer {
-  background-color: bisque;
+.card {
+  width: 185px;
+  padding: 0px;
 }

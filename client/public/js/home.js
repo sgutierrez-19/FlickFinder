@@ -21,19 +21,21 @@ $.ajax({
         var npDiv = $("<div>");
         npDiv.attr("class", "card");
         // img div
+        var imgLink = $("<a>");
+        imgLink.attr("href", "/movie/" + movieId);
         var npImg = $("<img>");
         npImg.attr("src", "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + moviePoster);
-        npImg.attr("class", "card-img-top img-fluid");
-        npDiv.append(npImg);
+        imgLink.append(npImg);
+        npDiv.append(imgLink);
 
-        // footer text of each card
-        var npFooter = $("<div>");
-        npFooter.attr("class", "card-footer");
-        var npFooterTxt = $("<small>");
-        npFooterTxt.attr("class", "text-muted");
-        npFooterTxt.text(movieTitle);
-        npFooter.append(npFooterTxt);
-        npDiv.append(npFooter);
+        // // footer text of each card
+        // var npFooter = $("<div>");
+        // npFooter.attr("class", "card-footer");
+        // var npFooterTxt = $("<small>");
+        // npFooterTxt.attr("class", "text-muted");
+        // npFooterTxt.text(movieTitle);
+        // npFooter.append(npFooterTxt);
+        // npDiv.append(npFooter);
 
         $("#npContainer").append(npDiv);
     }

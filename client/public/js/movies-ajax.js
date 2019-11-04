@@ -29,10 +29,12 @@ $(document).ready(function () {
                 var moviePoster = result.results[i].poster_path;
                 var movieTitle = result.results[i].title;
                 var movieId = result.results[i].id;
+                var movieOverview = result.results[i].overview;
+                var movieReleaseDate = result.results[i].release_date;
 
                 // do stuff with the results here (fill divs add info elsewhere etc)
                 var mediaDiv = $("<div>");
-                mediaDiv.attr("class", "media");
+                mediaDiv.attr("class", "media col-6 offset-3");
                 var imgDiv = $("<img>");
                 var imgLink = $("<a>");
                 imgLink.attr("href", "/movie/" + movieId);
@@ -42,10 +44,11 @@ $(document).ready(function () {
                 mediaDiv.append(imgLink);
 
                 var mediaBody = $("<div>");
-                mediaBody.attr("class", "media-body");
+                mediaBody.attr("class", "col-8");
                 var titleHeader = $("<h5>");
                 titleHeader.text(movieTitle);
                 mediaBody.append(titleHeader);
+                mediaBody.append("Plot: " + movieOverview);
                 mediaDiv.append(mediaBody);
 
                 $("#searchResults").append(mediaDiv);
