@@ -62,6 +62,7 @@ $(document).ready(function () {
     // if it just shows now playing when we load the page, we'll get rid of the on click method
     nowPlaying.on("click", function (event) {
         event.preventDefault();
+
         // building the url for the ajax
         var queryURL = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + apikey + "&language=en-US&page=1";
 
@@ -98,18 +99,21 @@ $(document).ready(function () {
                 npDiv.append(npFooter);
 
                 $("#npContainer").append(npDiv);
+<<<<<<< HEAD
 
 
             }
 
 
+=======
+            }
+>>>>>>> origin/master
         }).catch(function (err) {
             if (err) throw err;
             console.log(err);
         });
-
-
     });
+
     // recommended movie button ajax
     getRecommended.on("click", function (event) {
         // movieId is from the searched movie 
