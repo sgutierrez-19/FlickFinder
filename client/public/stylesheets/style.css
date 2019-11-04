@@ -28,7 +28,7 @@ button.btn btn-default {
   float: left;
 }
 .card-footer {
-  background-color: bisque;
+  background-color: gold;
 }
 
 
@@ -40,7 +40,6 @@ body {
 
 #movie-search {
   color:white;
-  font-weight: bold;
   font-family: 'Gothic A1', sans-serif !important;
 }
 
@@ -64,7 +63,19 @@ button.now-playing {
 }
 
 h1 {
+  font-weight: bold;
   margin: 0 0 0.5px 0;
   padding: 0 0 0.25px 0;
   border-bottom: 2px solid #333;
 }
+
+p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1px;
+  color: white;
+  z-index: 2;
+}
+
