@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <p id="overview">{{this.singleMovie.overview}}</p>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=""
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#favmodal"
                         data-movieid="{{this.singleMovie.movieid}}" id="favorite">Favorite</button>
                 </div>
             </div>
@@ -30,29 +30,31 @@
 </div>
 
 
-{{!-- <div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
+<div class=" modal" id="favmodal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 style="font-size: 28px" class="modal-title">{{this.singleMovie.title}} was favorited!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <p style="font-size: 18px">Would you like to review all the movies in your favorites?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button style="font-size: 16px" type="button" class="btn btn-secondary" data-dismiss="modal">Take me back</button>
+        <a href="/ratings"><button style="font-size: 16px" type="button" class="btn btn-primary">Let's go</button></a>
       </div>
     </div>
   </div>
-</div> --}}
+</div>
 
 <script src="/js/movies/create.js"></script>
 <script>
-    var apikey = "539ccda6c942a1dfd00efc7df43be0d1"
+
+    
+var apikey = "539ccda6c942a1dfd00efc7df43be0d1"
 var queryURL = "https://api.themoviedb.org/3/movie/" + $(".btn-success").data("movieid") + "/recommendations?api_key=" + apikey+ "&language=en-US&page=1"
 
 // ajax for now playing movies
