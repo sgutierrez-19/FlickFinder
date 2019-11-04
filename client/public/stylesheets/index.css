@@ -1,0 +1,59 @@
+#banner {
+
+    padding: 0px 0px;
+}
+
+img {
+    height: 700px;
+    width: 100%;
+    opacity: 0.25;
+    background: linear-gradient(red, yellow);
+}
+
+.jumbotron h1 {
+    /* background-color: yellow; */
+    /* opacity: .7; */
+    position: absolute;
+    text-align: center;
+    left: 0;
+    top: 25%;
+    width: 100%;
+    font-weight: bolder;
+    font-size: 75px;
+    
+}
+
+p.lead {
+    /* background-color: yellow; */
+    opacity: .7;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    top: 35%;
+    width: 100%;
+    font-weight: bolder;
+}
+
+p {
+    /* background-color: yellow; */
+    opacity: .7;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    font-weight: bolder;
+}
+
+
+
+.btn {
+    position: absolute;
+    left: 37%;
+    top: 50%;
+    width: 25%;
+}
+
+.jumbotron p {
+    font-weight: bold;
+}
