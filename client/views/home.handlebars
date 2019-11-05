@@ -18,7 +18,8 @@
 </div>
 
 <div class="row" id="recRow">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-8 offset-md-2" id="recId">
+       {{#if  originalTitle}}
         <h1>Because you watched {{originalTitle}}...</h1>
         <div class="card-deck" id="recContainer">
             {{#each recMovies}}
@@ -30,6 +31,7 @@
 
             {{/each}}
         </div>
+        {{/if}}
 
     </div>
 

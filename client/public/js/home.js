@@ -27,15 +27,6 @@ $.ajax({
         imgLink.append(npImg);
         npDiv.append(imgLink);
 
-        // // footer text of each card
-        // var npFooter = $("<div>");
-        // npFooter.attr("class", "card-footer");
-        // var npFooterTxt = $("<small>");
-        // npFooterTxt.attr("class", "text-muted");
-        // npFooterTxt.text(movieTitle);
-        // npFooter.append(npFooterTxt);
-        // npDiv.append(npFooter);
-
         $("#npContainer").append(npDiv);
     }
 }).catch(function (err) {

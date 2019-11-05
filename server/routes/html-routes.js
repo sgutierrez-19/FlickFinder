@@ -41,6 +41,8 @@ router.get("/home", isAuthenticated, function (req, res) {
         console.log(result[randomIndex]);
         var movieId = result[randomIndex].movie_id;
         var originalTitle = result[randomIndex].movie_title;
+        // var newh1 = $("<h1>");
+        // $("#recId").append(newh1);
         
         console.log("you have a favorited movie");
         var apikey = "539ccda6c942a1dfd00efc7df43be0d1";
@@ -80,10 +82,11 @@ router.get("/home", isAuthenticated, function (req, res) {
 
       } else {
         console.log("you have none");
+        res.render("home", { email: req.user.email });
       }
 
 
-      // res.render("home", { email: req.user.email });
+      
     }).catch(function (err) {
       res.status(500).json(err);
     });
