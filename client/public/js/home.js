@@ -9,8 +9,7 @@ $.ajax({
     method: "GET"
 }).then(function (result) {
     console.log(result);
-    // do shit with the data we get back
-    // prob store data in our database here using associations?
+    
 
     for (var i = 0; i < 5; i++) {
         var movieTitle = result.results[i].title;
@@ -27,15 +26,6 @@ $.ajax({
         npImg.attr("src", "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + moviePoster);
         imgLink.append(npImg);
         npDiv.append(imgLink);
-
-        // // footer text of each card
-        // var npFooter = $("<div>");
-        // npFooter.attr("class", "card-footer");
-        // var npFooterTxt = $("<small>");
-        // npFooterTxt.attr("class", "text-muted");
-        // npFooterTxt.text(movieTitle);
-        // npFooter.append(npFooterTxt);
-        // npDiv.append(npFooter);
 
         $("#npContainer").append(npDiv);
     }

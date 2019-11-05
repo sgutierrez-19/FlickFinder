@@ -63,10 +63,9 @@ $.ajax({
     method: "GET"
 }).then(function (result) {
     console.log(result);
-    // do shit with the data we get back
-    // prob store data in our database here using associations?
+    
 
-    for (var i = 0; i < 5; i++) {
+     for (var i = 0; i < 5; i++) {
         var movieTitle = result.results[i].title;
         var movieId = result.results[i].id;
         var moviePlot = result.results[i].overview;
@@ -75,19 +74,12 @@ $.ajax({
         var npDiv = $("<div>");
         npDiv.attr("class", "card");
         // img div
+        var imgLink = $("<a>");
+        imgLink.attr("href", "/movie/" + movieId);
         var npImg = $("<img>");
         npImg.attr("src", "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + moviePoster);
-        npImg.attr("class", "card-img-top img-fluid");
-        npDiv.append(npImg);
-
-        // footer text of each card
-        var npFooter = $("<div>");
-        npFooter.attr("class", "card-footer");
-        var npFooterTxt = $("<small>");
-        npFooterTxt.attr("class", "text-muted");
-        npFooterTxt.text(movieTitle);
-        npFooter.append(npFooterTxt);
-        npDiv.append(npFooter);
+        imgLink.append(npImg);
+        npDiv.append(imgLink);
 
         $("#npContainer").append(npDiv);
     }

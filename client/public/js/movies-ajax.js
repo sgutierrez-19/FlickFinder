@@ -45,10 +45,39 @@ $(document).ready(function () {
 
                 var mediaBody = $("<div>");
                 mediaBody.attr("class", "col-8");
-                var titleHeader = $("<h5>");
+                var titleRowDiv = $("<div>");
+                titleRowDiv.attr("class", "row");
+
+                var titleHeader = $("<h1>");
+                titleHeader.attr("class", "movie-title");
                 titleHeader.text(movieTitle);
-                mediaBody.append(titleHeader);
-                mediaBody.append("Plot: " + movieOverview);
+                titleRowDiv.append(titleHeader);
+
+                var plotRowDiv = $("<div>");
+                plotRowDiv.attr("class", "row");
+                var plotDiv = $("<div>");
+                plotDiv.attr("class", "movie-overview text-truncate");
+                var plotPara = $("<p>");
+                plotPara.attr("class", "p-home");
+                plotPara.text("Plot: " + movieOverview);
+                plotDiv.append(plotPara);
+                plotRowDiv.append(plotDiv);
+
+                var releasedRowDiv = $("<div>");
+                releasedRowDiv.attr("class", "row");
+                var releasedDiv = $("<div>");
+                releasedDiv.attr("class", "movie-date");
+                var date = $("<p>");
+                date.attr("class", "p-home movie-date");
+                date.text("Released: " + movieReleaseDate);
+                releasedDiv.append(date);
+                releasedRowDiv.append(releasedDiv);
+                
+
+                mediaBody.append(titleRowDiv);
+                mediaBody.append(plotRowDiv);
+                mediaBody.append(releasedRowDiv);
+                
                 mediaDiv.append(mediaBody);
 
                 $("#searchResults").append(mediaDiv);

@@ -133,6 +133,16 @@ p {
   z-index: 2;
 }
 
+.p-home {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1px;
+  
+  z-index: 2;
+}
+
 .movie-title {
   font-weight: bold;
   font-size: 26px
@@ -140,7 +150,8 @@ p {
 
 .movie-date {
   font-weight: bold;
-  font-size: 20px
+  font-size: 20px;
+  color: gold;
 }
 
 .movie-overview {
