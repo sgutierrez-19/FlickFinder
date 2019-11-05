@@ -112,7 +112,7 @@ button.now-playing {
 h1 {
   font-weight: bold;
   margin: 0px 0px;
-  float: left;
+  /* float: left; */
   padding: 1px;
   color: gold;
 }
@@ -156,7 +156,7 @@ p {
 
 .movie-title {
   font-size: 56px;
-  margin-bottom: 84px
+  margin-bottom: 100px
 }
 
 .movie-date {
@@ -165,6 +165,7 @@ p {
   margin-bottom: 42px
 }
 
+
 .movie-overview {
   font-size: 24px;
   color: gold;
@@ -172,13 +173,13 @@ p {
 }
 
 #favorite {
-  float:right;
+  font-weight: bold;
+  float: center;
 }
 
 .movie-title-search {
   font-size: 56px;
   margin-bottom: 21px;
-  margin-top: 21px
 }
 
 .movie-date-search {
@@ -191,7 +192,6 @@ p {
 .movie-overview-search {
   font-size: 24px;
   color: gold;
-  margin-bottom: 18px;
   margin-top: 18px
 }
 
@@ -200,7 +200,7 @@ p {
 }
 
 .landingimage {
-  height: 700px;
+  height: auto;
   width: 100%;
   opacity: 0.25;
   
@@ -213,9 +213,9 @@ p {
   left: 0;
   top: 25%;
   width: 100%;
-  font-weight: bolder;
-  font-size: 75px;
-  
+  font-weight: bold;
+  font-size: 50px;
+  font-family: 'Abril Fatface', cursive;
 }
 
 p {
@@ -223,7 +223,7 @@ p {
 }
 p.lead {
   /* background-color: yellow; */
-  opacity: .7;
+  /* opacity: .7; */
   position: absolute;
   text-align: center;
   left: 0;
@@ -231,13 +231,14 @@ p.lead {
   width: 100%;
   font-weight: bolder;
 }
-p.follow{
+
+p.follow {
   padding-top: 75px;
 }
 
 .jumbotron p {
   font-weight: bold;
-  opacity: .7;
+  /* opacity: .7; */
   position: absolute;
   text-align: center;
   left: 0;
@@ -251,6 +252,8 @@ p.follow{
   bottom: 30%;
   left: 55%;
   width: 25%;
+  font-weight: bold !important;
+  color: white !important
 }
 
 .btnsignup {
@@ -258,6 +261,8 @@ p.follow{
   bottom: 30%;
   left: 25%;
   width: 25%;
+  font-weight: bold !important;
+  color: white !important
 }
 
 
@@ -279,4 +284,13 @@ p.follow{
   color: gold;
   margin-bottom: 10px;
   margin-top: 10px
+}
+
+.movietitlediv {
+  text-align: center;
+  height: 100px
+}
+
+.movie-page-info-row {
+  margin-top: 50px;
 }

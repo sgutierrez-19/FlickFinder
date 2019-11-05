@@ -41,8 +41,10 @@ $(document).ready(function () {
                             <h1 class="movie-title-search">${movieTitle}</h1>
                         </div>
                         <div class="row">
-                            <h2 class="movie-date-search">${movieReleaseDate}</h2>
-                            <p class="movie-overview-search">${movieOverview}</p>
+                            <h2 class="movie-date-search">${movieReleaseDate}</h2><br>
+                        </div>
+                        <div class="row">
+                            <p class="movie-overview-search text-truncate" style="max-width: 800px;">${movieOverview}</p>
                         </div>
                     </div>
                 </div>`
