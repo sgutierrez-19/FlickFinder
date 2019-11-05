@@ -18,12 +18,14 @@ $.ajax({
         var moviePoster = result.results[i].poster_path;
 
         var npDiv = $("<div>");
-        npDiv.attr("class", "card");
-        // img div
         var imgLink = $("<a>");
-        imgLink.attr("href", "/movie/" + movieId);
         var npImg = $("<img>");
+
+        npDiv.attr("class", "card col-md-2");        
+        imgLink.attr("href", "/movie/" + movieId);
+        npImg.attr("class", "img-fluid");
         npImg.attr("src", "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + moviePoster);
+
         imgLink.append(npImg);
         npDiv.append(imgLink);
 

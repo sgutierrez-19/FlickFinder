@@ -1,36 +1,61 @@
+{{> navbar }}
+
+
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <img id="poster" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{this.singleMovie.poster_path}}"
-                alt="Movie Poster" class="img-thumbnail"> </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h1 id="movie-title">{{this.singleMovie.title}}</h1>
-                    <h2>Released: <span id="movie-year">{{this.singleMovie.release_date}}</span></h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <p id="overview">{{this.singleMovie.overview}}</p>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#favmodal"
-                        data-movieid="{{this.singleMovie.movieid}}" id="favorite">Favorite</button>
-                </div>
-            </div>
+
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <h1 id="movie-title" class="movie-title">{{this.singleMovie.title}}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 offset-md-1">
+      <div class="row">
+        <div class="col-md-12">
+          <img id="poster" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{this.singleMovie.poster_path}}"
+            alt="Movie Poster" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="movie-date">Released: <span id="movie-year">{{this.singleMovie.release_date}}</span></h2>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="movie-overview" id="overview">{{this.singleMovie.overview}}</p>
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#favmodal"
+            data-movieid="{{this.singleMovie.movieid}}" id="favorite">Favorite</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<div class="container" style="margin-top: 50px">
+    <div class="row" id="npRow">
+        <div class="col-md-5">
+            <h1>You may also like...</h1>
         </div>
     </div>
-</div>
 
-
-
-<div class="row" id="npRow">
-    <div class="col-md-8 offset-md-2">
-        <div class="card-deck" id="npContainer"></div>
+    <div class="card-deck row" id="npContainer">
     </div>
 </div>
 
 
-<div class=" modal" id="favmodal" tabindex="-1" role="dialog">
+<div class="modal" id="favmodal" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -43,7 +68,8 @@
         <p style="font-size: 18px">Would you like to review all the movies in your favorites?</p>
       </div>
       <div class="modal-footer">
-        <button style="font-size: 16px" type="button" class="btn btn-secondary" data-dismiss="modal">Take me back</button>
+        <button style="font-size: 16px" type="button" class="btn btn-secondary" data-dismiss="modal">Take me
+          back</button>
         <a href="/ratings"><button style="font-size: 16px" type="button" class="btn btn-primary">Let's go</button></a>
       </div>
     </div>
@@ -53,38 +79,39 @@
 <script src="/js/movies/create.js"></script>
 <script>
 
-    
-var apikey = "539ccda6c942a1dfd00efc7df43be0d1"
-var queryURL = "https://api.themoviedb.org/3/movie/" + $(".btn-success").data("movieid") + "/recommendations?api_key=" + apikey+ "&language=en-US&page=1"
 
-// ajax for now playing movies
-$.ajax({
+  var apikey = "539ccda6c942a1dfd00efc7df43be0d1"
+  var queryURL = "https://api.themoviedb.org/3/movie/" + $(".btn-success").data("movieid") + "/recommendations?api_key=" + apikey + "&language=en-US&page=1"
+
+  // ajax for now playing movies
+  $.ajax({
     url: queryURL,
     method: "GET"
-}).then(function (result) {
+  }).then(function (result) {
     console.log(result);
     
 
-     for (var i = 0; i < 5; i++) {
-        var movieTitle = result.results[i].title;
-        var movieId = result.results[i].id;
-        var moviePlot = result.results[i].overview;
-        var moviePoster = result.results[i].poster_path;
+    for (var i = 0; i < 5; i++) {
+      var movieTitle = result.results[i].title;
+      var movieId = result.results[i].id;
+      var moviePlot = result.results[i].overview;
+      var moviePoster = result.results[i].poster_path;
 
         var npDiv = $("<div>");
-        npDiv.attr("class", "card");
-        // img div
         var imgLink = $("<a>");
-        imgLink.attr("href", "/movie/" + movieId);
         var npImg = $("<img>");
+
+        npDiv.attr("class", "card col-md-2");        
+        imgLink.attr("href", "/movie/" + movieId);
+        npImg.attr("class", "img-fluid");
         npImg.attr("src", "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + moviePoster);
         imgLink.append(npImg);
         npDiv.append(imgLink);
 
         $("#npContainer").append(npDiv);
     }
-}).catch(function (err) {
+  }).catch(function (err) {
     if (err) throw err;
     console.log(err);
-});
+  });
 </script>

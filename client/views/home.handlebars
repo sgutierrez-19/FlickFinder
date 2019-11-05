@@ -1,5 +1,8 @@
+{{> navbar }}
+
+
 <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div class="col-md-8 offset-md-2">
         <form id="movie-search">
             <div class="form-group">
                 <label for="movie-search-title">Search a Movie...</label>
@@ -17,36 +20,37 @@
 
 </div>
 
-<div class="row" id="recRow">
-    <div class="col-md-8 offset-md-2" id="recId">
-       {{#if  originalTitle}}
-        <h1>Because you watched {{originalTitle}}...</h1>
-        <div class="card-deck" id="recContainer">
-            {{#each recMovies}}
-            <div class="card">
-                <a href="/movie/{{this.movieid}}">
-                    <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{this.poster_path}}" alt="{{this.title}}">
-                </a>
-            </div>
-
-            {{/each}}
+<div class="container">
+    <div class="row" id="recRow">
+        <div class="col-md-8" id="recId">
+            {{#if  originalTitle}}
+            <h1>Because you watched {{originalTitle}}...</h1>
         </div>
-        {{/if}}
+    </div>
+    <div class="card-deck row" id="recContainer">
+        {{#each recMovies}}
+        <div class="card col-md-2">
+            <a href="/movie/{{this.movieid}}">
+                <img class="img-fluid" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{this.poster_path}}"
+                    alt="{{this.title}}">
+            </a>
+        </div>
 
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
+
+<div class="container">
+    <div class="row" id="npRow">
+        <div class="col-md-5">
+            <h1>Now Playing: </h1>
+        </div>
     </div>
 
+    <div class="card-deck row" id="npContainer">
+    </div>
 </div>
 
 
-
-<div class="row" id="npRow">
-
-    <div class="col-md-8 offset-md-2">
-        <h1>Now Playing: </h1>
-        <div class="card-deck" id="npContainer"></div>
-
-    </div>
-
-</div>
-
-<script src="/js/home.js"></script>
+<script src="/js/home.js"></script\>
