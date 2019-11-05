@@ -198,7 +198,8 @@ p {
 #banner {
   padding: 0px 0px;
 }
-img {
+
+.landingimage {
   height: 700px;
   width: 100%;
   opacity: 0.25;
@@ -215,6 +216,10 @@ img {
   font-weight: bolder;
   font-size: 75px;
   
+}
+
+p {
+  z-index: 0
 }
 p.lead {
   /* background-color: yellow; */
@@ -241,10 +246,22 @@ p.follow{
   
 }
 
+<<<<<<< HEAD
 .btn {
+=======
+.btnlogin {
+  position: absolute;
+  bottom: 30%;
+  left: 55%;
+  width: 25%;
+}
+
+.btnsignup {
+  position: absolute;
+  bottom: 30%;
+>>>>>>> origin/master
   left: 25%;
   width: 25%;
-  z-index: 99;
 }
 
 
