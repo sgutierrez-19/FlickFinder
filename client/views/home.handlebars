@@ -1,16 +1,12 @@
 {{> navbar }}
 
-
 <div class="row">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-6 offset-md-3">
         <form id="movie-search">
             <div class="form-group">
-                <label for="movie-search-title">Search a Movie...</label>
                 <input type="text" class="form-control" id="movie-search-title" aria-describedby="emailHelp"
-                    placeholder="Enter movie">
-
+                    placeholder="Search by movie name...">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>
@@ -20,11 +16,11 @@
 
 </div>
 
-<div class="container">
+<div style="margin-top: 50px" class="container">
     <div class="row" id="recRow">
         <div class="col-md-8" id="recId">
             {{#if  originalTitle}}
-            <h1>Because you watched {{originalTitle}}...</h1>
+            <h1 style="font-size: 24px; font-weight: bold">Because you watched {{originalTitle}}...</h1>
         </div>
     </div>
     <div class="card-deck row" id="recContainer">
@@ -41,10 +37,10 @@
     {{/if}}
 </div>
 
-<div class="container">
+<div style="margin-top: 50px" class="container">
     <div class="row" id="npRow">
         <div class="col-md-5">
-            <h1>Now Playing: </h1>
+            <h1 style="font-size: 24px; font-weight: bold">Now Playing: </h1>
         </div>
     </div>
 

@@ -31,56 +31,23 @@ $(document).ready(function () {
                 var movieOverview = result.results[i].overview;
                 var movieReleaseDate = result.results[i].release_date;
 
-                // do stuff with the results here (fill divs add info elsewhere etc)
-                var mediaDiv = $("<div>");
-                mediaDiv.attr("class", "media col-6 offset-3");
-                var imgDiv = $("<img>");
-                var imgLink = $("<a>");
-                imgLink.attr("href", "/movie/" + movieId);
-                imgDiv.attr("src", "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + moviePoster);
-                imgLink.append(imgDiv);
-
-                mediaDiv.append(imgLink);
-
-                var mediaBody = $("<div>");
-                mediaBody.attr("class", "col-8");
-                var titleRowDiv = $("<div>");
-                titleRowDiv.attr("class", "row");
-
-                var titleHeader = $("<h1>");
-                titleHeader.attr("class", "movie-title");
-                titleHeader.text(movieTitle);
-                titleRowDiv.append(titleHeader);
-
-                var plotRowDiv = $("<div>");
-                plotRowDiv.attr("class", "row");
-                var plotDiv = $("<div>");
-                plotDiv.attr("class", "movie-overview text-truncate");
-                var plotPara = $("<p>");
-                plotPara.attr("class", "p-home");
-                plotPara.text("Plot: " + movieOverview);
-                plotDiv.append(plotPara);
-                plotRowDiv.append(plotDiv);
-
-                var releasedRowDiv = $("<div>");
-                releasedRowDiv.attr("class", "row");
-                var releasedDiv = $("<div>");
-                releasedDiv.attr("class", "movie-date");
-                var date = $("<p>");
-                date.attr("class", "p-home movie-date");
-                date.text("Released: " + movieReleaseDate);
-                releasedDiv.append(date);
-                releasedRowDiv.append(releasedDiv);
+                let searchRow = `
+                <div class="row">
+                    <div class="col-sm-2 offset-sm-2">
+                        <a href="/movie/${movieId}"><img class="img-thumbnail" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/${moviePoster}">  </a> 
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <h1 class="movie-title-search">${movieTitle}</h1>
+                        </div>
+                        <div class="row">
+                            <h2 class="movie-date-search">${movieReleaseDate}</h2>
+                            <p class="movie-overview-search">${movieOverview}</p>
+                        </div>
+                    </div>
+                </div>`
                 
-
-                mediaBody.append(titleRowDiv);
-                mediaBody.append(plotRowDiv);
-                mediaBody.append(releasedRowDiv);
-                
-                mediaDiv.append(mediaBody);
-
-                $("#searchResults").append(mediaDiv);
-
+                $("#searchResults").append(searchRow);
             }
         }).catch(function (err) {
             if (err) throw err;
