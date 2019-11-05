@@ -166,3 +166,56 @@ p {
 
 }
 
+#banner {
+  padding: 0px 0px;
+}
+img {
+  height: 700px;
+  width: 100%;
+  opacity: 0.25;
+  
+}
+.jumbotron h1 {
+  /* background-color: yellow; */
+  /* opacity: .7; */
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 25%;
+  width: 100%;
+  font-weight: bolder;
+  font-size: 75px;
+  
+}
+p.lead {
+  /* background-color: yellow; */
+  opacity: .7;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 35%;
+  width: 100%;
+  font-weight: bolder;
+}
+p.follow{
+  padding-top: 75px;
+}
+
+.jumbotron p {
+  font-weight: bold;
+  opacity: .7;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 40%;
+  width: 100%;
+  
+}
+
+.btn {
+  position: relative;
+  left: 25%;
+  width: 25%;
+}
+
+
