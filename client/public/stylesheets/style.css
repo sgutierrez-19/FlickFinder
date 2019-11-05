@@ -32,9 +32,9 @@ form.login {
 
 h2 {
   font-weight: bold;
-  margin: -10px 0px;
+  margin: 0px 0px;
   float: left;
-  padding:25px;
+  padding:1px;
   color: gold;
 }
 
@@ -53,13 +53,14 @@ button.btn btn-default {
   color: rgb(250, 252, 156);
 }
 
-.card-deck {
+/* .card-deck {
   float: left;
-}
+} */
 
 .card {
   width: 185px;
   padding: 0px;
+  background-color: transparent !important
 }
 
 .card-footer {
@@ -99,16 +100,16 @@ button.now-playing {
 
 h1 {
   font-weight: bold;
-  margin: -10px 0px;
+  margin: 0px 0px;
   float: left;
-  padding:25px;
+  padding: 1px;
   color: gold;
 }
 h3 {
-  margin: -10px -30px;
-  position: absolute;
+  margin: 0px 0px;
+  /* position: absolute; */
   float: left;
-  padding:55px;
+  padding: 1px;
   color: gold;
 }
 
@@ -124,27 +125,35 @@ h3 {
   font-size: 16px;
 }
 p {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 1px;
-  
   z-index: 2;
 }
 
 .movie-title {
-  font-weight: bold;
-  font-size: 26px
+  font-size: 56px;
+  margin-bottom: 84px
 }
 
 .movie-date {
   font-weight: bold;
-  font-size: 20px
+  font-size: 28px;
+  margin-bottom: 42px
+
 }
 
 .movie-overview {
-  font-size: 16px;
+  font-size: 24px;
   color: gold;
+  margin-bottom: 36px
+
+}
+
+#favorite {
+  float:right;
+
 }
 

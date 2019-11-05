@@ -23,7 +23,6 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (result) {
-            console.log(result);
 
             for (var i = 0; i < 5; i++) {
                 var moviePoster = result.results[i].poster_path;
@@ -71,8 +70,6 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (results) {
-            console.log(results);
-            // do more shit with the results from this ajax
         }).catch(function (err) {
             if (err) throw err;
             console.log(err);

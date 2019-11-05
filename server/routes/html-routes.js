@@ -35,21 +35,17 @@ router.get("/home", isAuthenticated, function (req, res) {
     }
   })
     .then(function (result) {
-      console.log(result.length);
       if (result.length > 0) {
         var randomIndex = Math.floor(Math.random() * result.length);
-        console.log(result[randomIndex]);
         var movieId = result[randomIndex].movie_id;
         var originalTitle = result[randomIndex].movie_title;
         
-        console.log("you have a favorited movie");
         var apikey = "539ccda6c942a1dfd00efc7df43be0d1";
 
         var queryURL = "https://api.themoviedb.org/3/movie/" + movieId + "/recommendations?api_key=" + apikey + "&language=en-US&page=1";
 
         axios.get(queryURL)
           .then(function (result) {
-            console.log(result.data.results);
 
 
             var data = {
@@ -71,7 +67,6 @@ router.get("/home", isAuthenticated, function (req, res) {
 
             }
 
-            console.log(data);
             res.render("home", data);
           })
 
@@ -79,7 +74,7 @@ router.get("/home", isAuthenticated, function (req, res) {
 
 
       } else {
-        console.log("you have none");
+        res.render("home", {});
       }
 
 
@@ -109,8 +104,6 @@ router.get("/movie/:movieid", isAuthenticated, function (req, res) {
       res.render("movie", { singleMovie });
     })
     .catch(function (error) {
-      // handle error
-      console.log(error);
     })
   // .finally(function () {
   //   // always executed

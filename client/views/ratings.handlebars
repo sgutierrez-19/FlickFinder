@@ -1,9 +1,12 @@
+  {{> navbar }}
+
+
 <div class="container">
 
     {{#each movies}}
     <div class="row">
         <div class="col-sm-3">
-            <a data-movieid="{{this.movie_id}}" href="/movie/{{this.movie_id}}"><img src="{{this.poster_path}}" alt="Movie Poster Thumbnail" class="img-thumbnail"></a>
+            <a data-movieid="{{this.movie_id}}" href="/movie/{{this.movie_id}}"><img src="{{this.poster_path}}" alt="Movie Poster Thumbnail" class="img-fluid"></a>
         </div>
         <div class="col-sm-6">
             <div class="row">
