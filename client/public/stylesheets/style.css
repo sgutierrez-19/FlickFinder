@@ -53,10 +53,6 @@ button.btn btn-default {
   color: rgb(250, 252, 156);
 }
 
-/* .card-deck {
-  float: left;
-} */
-
 .card {
   width: 185px;
   padding: 0px;
@@ -246,9 +242,6 @@ p.follow{
   
 }
 
-<<<<<<< HEAD
-.btn {
-=======
 .btnlogin {
   position: absolute;
   bottom: 30%;
@@ -259,7 +252,6 @@ p.follow{
 .btnsignup {
   position: absolute;
   bottom: 30%;
->>>>>>> origin/master
   left: 25%;
   width: 25%;
 }
