@@ -5,22 +5,6 @@ const axios = require("axios");
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-                      // router.get("/signup", function (req, res) {
-                      //   // If the user already has an account send them to the members page
-                      //   if (req.user) {
-                      //     return res.redirect("/home");
-                      //   }
-                      //   res.render("signup", { isLoggedOut: true });
-                      // });
-
-                      // router.get("/login", function (req, res) {
-                      //   // If the user already has an account send them to the members page
-                      //   if (req.user) {
-                      //     return res.redirect("/home");
-                      //   }
-                      //   res.render("login", { isLoggedOut: true });
-                      // });
-
 // Here we've add our isAuthenticated middleware to this route.
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
 router.get("/", function (req, res) {
@@ -39,8 +23,6 @@ router.get("/home", isAuthenticated, function (req, res) {
         var randomIndex = Math.floor(Math.random() * result.length);
         var movieId = result[randomIndex].movie_id;
         var originalTitle = result[randomIndex].movie_title;
-        // var newh1 = $("<h1>");
-        // $("#recId").append(newh1);
         
         var apikey = "539ccda6c942a1dfd00efc7df43be0d1";
 
@@ -48,14 +30,10 @@ router.get("/home", isAuthenticated, function (req, res) {
 
         axios.get(queryURL)
           .then(function (result) {
-
-
             var data = {
               recMovies: [],
               originalTitle: originalTitle
             };
-
-
 
             for (var i = 0; i < 5; i++) {
               let currentMovie = {
@@ -66,25 +44,15 @@ router.get("/home", isAuthenticated, function (req, res) {
                 movieid: result.data.results[i].id,
               }
               data.recMovies.push(currentMovie);
-
             }
-
             res.render("home", data);
           })
-
-
-
-
       } else {
         res.render("home", {});
-      }
-
-
-      
+      }     
     }).catch(function (err) {
       res.status(500).json(err);
     });
-
 });
 
 // Here we've add our isAuthenticated middleware to this route.
@@ -107,11 +75,6 @@ router.get("/movie/:movieid", isAuthenticated, function (req, res) {
     })
     .catch(function (error) {
     })
-  // .finally(function () {
-  //   // always executed
-  // });
-  // res.render("movie", { singleMovie });
-
 });
 
 // Here we've add our isAuthenticated middleware to this route.
