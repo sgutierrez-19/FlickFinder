@@ -158,11 +158,48 @@ p {
   font-size: 24px;
   color: gold;
   margin-bottom: 36px
-
 }
 
 #favorite {
   float:right;
-
 }
 
+.movie-title-search {
+  font-size: 56px;
+  margin-bottom: 21px;
+  margin-top: 21px
+}
+
+.movie-date-search {
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 21px;
+  margin-top: 21px
+}
+
+.movie-overview-search {
+  font-size: 24px;
+  color: gold;
+  margin-bottom: 18px;
+  margin-top: 18px
+}
+
+.movie-title-rating {
+  font-size: 38px;
+  margin-bottom: 12px;
+  margin-top: 12px
+}
+
+.movie-date-rating {
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 12px;
+  margin-top: 12px
+}
+
+.movie-overview-rating {
+  font-size: 20px;
+  color: gold;
+  margin-bottom: 10px;
+  margin-top: 10px
+}
