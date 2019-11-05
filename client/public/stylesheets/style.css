@@ -69,6 +69,7 @@ button.btn btn-default {
 
 .navbar {
   background: gold;
+  border: none
 }
 
 .navbar-brand {
