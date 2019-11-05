@@ -22,12 +22,12 @@
 
 <div class="container">
     <div class="row" id="recRow">
-        <div class="col-md-5">
+        <div class="col-md-8" id="recId">
+            {{#if  originalTitle}}
             <h1>Because you watched {{originalTitle}}...</h1>
         </div>
     </div>
-
-    <div class="card-deck row " id="recContainer">
+    <div class="card-deck row" id="recContainer">
         {{#each recMovies}}
         <div class="card col-md-2">
             <a href="/movie/{{this.movieid}}">
@@ -35,8 +35,10 @@
                     alt="{{this.title}}">
             </a>
         </div>
+
         {{/each}}
     </div>
+    {{/if}}
 </div>
 
 <div class="container">

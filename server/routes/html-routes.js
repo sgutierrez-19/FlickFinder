@@ -39,6 +39,8 @@ router.get("/home", isAuthenticated, function (req, res) {
         var randomIndex = Math.floor(Math.random() * result.length);
         var movieId = result[randomIndex].movie_id;
         var originalTitle = result[randomIndex].movie_title;
+        // var newh1 = $("<h1>");
+        // $("#recId").append(newh1);
         
         var apikey = "539ccda6c942a1dfd00efc7df43be0d1";
 
@@ -78,7 +80,7 @@ router.get("/home", isAuthenticated, function (req, res) {
       }
 
 
-      // res.render("home", { email: req.user.email });
+      
     }).catch(function (err) {
       res.status(500).json(err);
     });
