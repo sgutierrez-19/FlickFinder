@@ -242,7 +242,6 @@ p.follow{
 }
 
 .btn {
-  position: relative;
   left: 25%;
   width: 25%;
   z-index: 99;
