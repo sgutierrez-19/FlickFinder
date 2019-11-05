@@ -71,6 +71,17 @@ button.btn btn-default {
   background: gold;
 }
 
+.navbar-brand {
+  font-weight: bold;
+  border: none;
+  color: black;
+  padding: 10px 25px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+}
+
 body {
   background-color: rgb(41, 41, 41);
 }
